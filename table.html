@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tableClass</title>
+    
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color:sandybrown;
+    font-family: cursive;
+}
+td, th{
+    width: 15%;
+}
+tr{
+    border: 1px solid red;
+}
+#root{
+   text-align: center;
+    padding: 10px;
+    font-family: cursive;
+    width: 100%;
+}
+ tbody tr:nth-child(odd){
+	background: rgb(207 187 168);
+}
+ thead tr:nth-child(odd){
+	background: rgb(229, 226, 226);
+}
+.my-tr-for-data{
+    background-color: #ffd5a3;
+}
+thead tr th {
+    height: 50px;
+    border-radius: 20px;
+    background-color: seagreen;
+}
+tbody tr td {
+    height: 40px;
+    border-radius: 20px;
+}
+.my-table{
+    border-radius: 20px;
+    width: 100%;
+}
+.my-th-th-for-titles{
+    background-color: seagreen;
+}
+.button{
+    width: 60px;
+    height: 20px;
+}
+#input{
+    margin-left: 60%;
+    border-radius: 10px;
+    background-color:#e3c085b3;
+    height: 29px;
+}
+#search-div span{
+    font-family: cursive;
+    font-size: 15px;   
+}
+.red-span{
+    color: red;
+    font-size: 18px;
+}
+#search-div-child{
+    display: flex;
+}
+.result-span{
+    margin-left: 63%;
+    width: 60px;
+    height: 50px;
+}
+.button, #splice {
+    width: 70px;
+    height: 27px;
+    border-radius: 15px;
+    color: white;
+    background-color: darkviolet;
+    font-family: cursive;
+    text-align: center;
+}
+label span {
+    background-color: #ffd5a3;
+    border-radius: 7px;
+}
+.wrapper{
+    margin: auto;
+}
+.pre-cub{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+.pre-cub:hover {
+background-color: grey;
+
+}
+.pagination-wrapper {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    float: right;
+}
+.up-button-for-sorting{
+    border-radius: 7px;
+    width: 30px;
+    background-color: rgb(60, 50, 204);
+    box-shadow: inset 300px 0 0 0 rgb(99, 88, 253);
+    font-family: cursive;
+    text-align: center;
+    transition: ease-in-out 1s;
+}
+.up-button-for-sorting:hover{
+    box-shadow: inset 0px 0 0 0 rgb(204, 50, 50)
+}
+.down-button-for-sorting{
+    border-radius: 7px;
+    width: 50px;
+    background-color: rgb(204, 50, 50);
+    box-shadow: inset 300px 0 0 0 rgb(255, 49, 49);
+    font-family: cursive;
+    text-align: center;
+    transition: ease-in-out 1s;
+}
+.down-button-for-sorting:hover{
+    box-shadow: inset 0px 0 0 0 rgb(60, 50, 204);
+}
+.in-what-page{
+    color: red;
+
+}
+.you-are-in-page{
+    background-color: orange;
+    width: 200px;
+    border-radius: 30px;
+    text-align: center;
+    margin-left: 40%;
+}
+header h1{
+    text-align: center;
+    font-size: 50px;
+    color: #ffcca0;
+}
+.loading-div-parent{
+    margin-left: 260%;
+
+}
+.loadingDiv{
+    width: 90px;
+    height: 90px;
+    background-color: sandybrown;
+    border-radius: 50%;
+    border:15px solid rgb(216, 214, 214);
+    border-top-color: rgb(174, 169, 163);
+    transition: cubic-bezier(.17,.67,1,-0.3);
+    transition-duration: 2000s;
+    animation: loading 1s linear;
+    display: block;
+}
+
+@keyframes loading {
+    100%{
+        transform:rotate(1turn);
+        
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header><h1>Welcome</h1></header>
+        
+        <!-- <div class="loadingDiv">
+            
+        </div> -->
+        <label for="splice"><span>Select that you want:</span></label>
+        <select name="cut" id="splice" onchange="obj.selectRowPerPage(event)" >
+            <!-- <option value="else" class="usersPageAndElseValue">else</option> 
+            <option value="Select">Select</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option> -->
+        </select>
+
+        <div id="search-div">
+            <div id="search-div-child">
+                <input type="search" id="input">
+                <button type="button" class="button"><span>search</span></button>
+            </div>
+    
+            <!-- <span class="result-span"> </span> -->
+        </div>
+        <div class="you-are-in-page">
+            <span>You are in <span class="in-what-page">...</span>-th page</span>
+        </div>
+
+
+        <div id="root"></div>
+        <div class="pagination-wrapper"></div>
+
+    </div>
+    <script src="table.js"></script>
+</body>
+</html>
